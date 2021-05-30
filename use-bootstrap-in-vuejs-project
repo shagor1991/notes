@@ -1,0 +1,46 @@
+VueJs এর সাথে Bootstrap ব্যবহার করার দুইটা পদ্ধতি আছে।
+
+১. bootstrap-vue ব্যবহার করা
+২. VueJs প্রজেক্টে Bootstrap ইনস্টল করে ব্যবহার করা 
+
+প্রথম পদ্ধতি:  bootstrap-vue ব্যবহার করা
+এই পদ্ধতিতে bootstrap-vue ইনস্টল করে, bootstrap-vue  এর নিজস্ব component এবং props ব্যাবহার করে UI ডেভেলপ করা যাবে। 
+যেমনঃ bootstrap button ব্যাবহার  করতে হলে <b-button variant="danger">Button</b-button> এই সিনটেক্স দিলেই হবে। 
+
+=> প্রথমে bootstrap-vue ইনস্টল করতে হবে নিচের কমান্ড ব্যবহার করে 
+
+npm install bootstrap-vue 
+
+=> main.js এ কনফিগার করতে হবে 
+
+import 'bootstrap'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
+
+সুবিধা: 
+১. যেহেতু এদের নিজস্ব component ব্যাবহার করে কাজ করা যায় তাই code অনেক কম লিখতে হয়। 
+২. চাইলে এদের component ব্যাবহার না করে, নরমাল html tag এবং bootstrap এর ক্লাস ব্যাবহার করেও কাজ করা যায়। 
+৩. তবে bootstrap এর modal, navbar বা কোনো জাভাস্ক্রিপ্ট ফানশনালিটি ব্যাবহার করতে হলে jquery এবং popper.js ইনস্টল করতে হবে। এবং main.js ফাইলে  import 'bootstrap' দিয়ে bootstrap ইমপোর্ট করতে হয়। 
+
+
+অসুবিধাঃ 
+১. এই পদ্ধতিতে table ব্যাবহার করা এবং টেবিলের মধ্যে action button ব্যাবহার করা কষ্টকর। 
+
+
+দ্বিতীয় পদ্ধতি: VueJs প্রজেক্টে Bootstrap ইনস্টল করে ব্যবহার করা-  
+এই পদ্ধতিতে Vue প্রজেক্ট ক্রিয়েট করে তারপর Bootstrap ইনস্টল করতে হবে। এই পদ্ধতি ব্যবহার করলে সরাসরি HTML ট্যাগ এবং bootstrap এর ক্লাস ব্যবহার করে UI ডেভেলপ করা যায়। 
+ 
+ধাপ সমূহঃ 
+=> প্রথমে ফ্রেশ Vue project ইনস্টল করতে হবে। 
+=> তারপর npm install bootstrap দিয়ে bootstrap ইনস্টল করতে হবে।
+=> এখন যদি  bootstrap এর modal, navbar বা কোনো জাভাস্ক্রিপ্ট ফানশনালিটি ব্যাবহার করতে হয় তাহলে popper ইনস্টল করতে হবে (npm i @popperjs/core)
+=> মনে রাখতে হবে যে bootstrap ৫ এ jquery প্রয়োজন নেই তাই ইনস্টল করতে হবে না। 
+=> main.js এ কনফিগার করতে হবে 
+import 'bootstrap' (জাভাস্ক্রিপ্ট functionality ব্যবহারের প্রয়োজন হলে )
+import 'bootstrap/dist/css/bootstrap.min.css'
